@@ -1,13 +1,13 @@
-Here is the instructions for the article entitled "_A new hybrid method to quantify the ambiguity degree of human movement networks between weekdays and weekends_". If you have any questions, please contact [spx0310@tongji.edu.cn](mailto:spx0310@tongji.edu.cn) . We provide the illustrate for the origin-destination (OD) data and the instructions for the script.
+Here are the instructions for the article entitled "_A new hybrid method to quantify the ambiguity degree of human movement networks between weekdays and weekends_". If you have any questions, please contact [spx0310@tongji.edu.cn](mailto:spx0310@tongji.edu.cn). We provide the illustration for the origin-destination (OD) data and the instructions for the script.
 
 # Software requirements
-The OD data is managed through the PostgreSQL, thus, you need to download and install the PostgreSQL and the PostGIS to store and operate the OD data.
+The OD data is managed through PostgreSQL, so you'll need to download and install the PostgreSQL and the PostGIS to store and operate the OD data.
 
 # Data declaration
-We provide the New York City (NYC) OD data, Chicago City (CGC) OD data, and the zone maps for reproducing our experiment results. The OD data is stored in the "Data" folder, except for the 2017 taxi data and 2018 taxi data in NYC. However, we provide the script named "Tripdatadownload" to help you obtain these data. For detailed information, please refer to the "Tripdatadownload.py" file in the "Script/Data2postgre" folder. Additionally, the OD data in Shanghai City (SHC) cannot be shared because of the data privacy. But, we can provide the experiment results of the SHC OD data.
+We provide the New York City (NYC) OD data, Chicago City (CGC) OD data, and the zone maps for reproducing our experiment results. The data is stored in the "Data" folder, except for the 2017 taxi data and 2018 taxi data in NYC. However, we provide the script named "Tripdatadownload" to help you obtain these data. For detailed information, please refer to the "Tripdatadownload.py" file in the "Script/Data2postgre" folder. Additionally, the OD data in Shanghai City (SHC) cannot be shared because of the data privacy. But, we provide the experiment results of the SHC OD data in the "Result/SHC" folder.
 
 # Script declaration
-We provide the scripts for reproducing our experiment results in the "Script" folder, expect for the sensitivity analysis part. It results from code security problem raised by the key method of my next research. However, we provide the essential data for this parts in the "Data/NYC/2016ACS" folder. They are used for rearranging the OD matrix based on the semantic information in each zone.
+We provide the scripts for reproducing our experiment results in the "Script" folder, except for the sensitivity analysis part. It results from code security problem raised by the key method of my next research. However, we provide the essential data for this parts in the "Data/NYC/2016ACS" folder. They are used for rearranging the OD matrix based on the semantic information in each zone.
 
 # Script instructions
 ## OD data to PostgreSQL
@@ -27,6 +27,6 @@ Finally, you have to create the index for faster querying by using the "create_i
 ## OD data standardization
 After you loaded the OD data to the database, you can use the script named "ODmatrix_standardization" in "Script/Data_standardization" folder to standardize the OD data and output the results in the local folders. We create two function named "adjacent_matrix_bike()" and "adjacent_matrix_taxi()" to output the standardized results. They are shown in the "Results" folder. For detailed usage, please refer the annotation in the "ODmatrix_standardization" script.
 ## Fuzzy C-Means clustering
-Once you standardized the OD data and outputted the corresponding OD matrices, the "Clustering" script in the "Script/Fuzzy C-Means clustering" folder can help you cluster the OD matrix and obtain the membership matrix and clustering centers. To obtain the experiment results, you have to run the "graph_cmeans()" function. It will output two files corresponding to the membership matrix and clustering centers. They are shown in the "Results" folder
+Once you standardized the OD data and outputted the corresponding OD matrices, the "Clustering" script in the "Script/Fuzzy C-Means clustering" folder can help you cluster the OD matrix and obtain the membership matrix and clustering centers. To obtain the experiment results, you have to run the "graph_cmeans()" function. It will output two files corresponding to the membership matrix and clustering centers. They are shown in the "Results" folder.
 ## Visualization
 To obtain the Figure 3 - 10 in the manuscript, you can run and adjust the "membership_plot ()"and "scatter_plot()" in the "Visulization" script.
